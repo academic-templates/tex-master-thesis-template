@@ -8,15 +8,15 @@
 \usetikzlibrary{shadows}
 % framed subsubsection
 \newenvironment{framedsubsubsection}[1]{\tabulinesep=2mm \Needspace*{2cm} \begin{longtabu}%
-  {!{\color{EPLblue}\vrule}m{0.15\textwidth}!{\color{EPLblue}\vrule}m{0.8\textwidth}!{\color{EPLblue}\vrule}}
-  \arrayrulecolor{EPLblue}\hline \subsubsection*{\color{UCLblue} #1} &}{\\
-  \arrayrulecolor{EPLblue}\hline \end{longtabu}}
+  {!{\color{SecondBlue}\vrule}m{0.15\textwidth}!{\color{SecondBlue}\vrule}m{0.8\textwidth}!{\color{SecondBlue}\vrule}}
+  \arrayrulecolor{SecondBlue}\hline \subsubsection*{\color{FirstBlue} #1} &}{\\
+  \arrayrulecolor{SecondBlue}\hline \end{longtabu}}
 \newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
 % declaration of underlying environments
 \newmdenv[
   linewidth=0pt,
   roundcorner=5pt,
-  backgroundcolor=EPLblue!20,
+  backgroundcolor=SecondBlue!20,
   frametitle={},
   shadowsize=5pt,
   shadow=true
@@ -25,9 +25,9 @@
   linewidth=0pt,
   innertopmargin=\baselineskip,
   roundcorner=5pt,
-  backgroundcolor=EPLblue!20,
+  backgroundcolor=SecondBlue!20,
   frametitle=Summary,
-  frametitlefont=\LARGE\scshape\color{UCLblue}\bfseries,
+  frametitlefont=\LARGE\scshape\color{FirstBlue}\bfseries,
   shadowsize=5pt,
   shadow=true
 ]{summarybox}
@@ -41,7 +41,7 @@
 % declaration of information box
 \newenvironment{info}
   {\begin{center}\begin{minipage}{0.95\linewidth}\begin{infobox}%
-    \color{UCLblue}\vspace{0.2cm}\begin{tabular}{m{0.1\textwidth}m{0.85\textwidth}}
+    \color{FirstBlue}\vspace{0.2cm}\begin{tabular}{m{0.1\textwidth}m{0.85\textwidth}}
       \includegraphics[width=1.5cm]{icons/info.png} &}
   {\\ \end{tabular}\end{infobox}\end{minipage}\end{center}}
 % declaration of project data box
@@ -73,9 +73,9 @@
       \includegraphics[width=1.5cm]{icons/standard.png} &}
   {\\ \end{tabular}\end{infobox}\end{minipage}\end{center}}
 % declaration of summary box
-\newcommand{\summarycaption}[1]{\caption{\color{UCLblue} #1}}
+\newcommand{\summarycaption}[1]{\caption{\color{FirstBlue} #1}}
 \newenvironment{summary}
-  {\pagebreak\begin{figure}[htb!]\begin{center}\begin{minipage}{0.95\linewidth}\begin{summarybox}\color{UCLblue}%
+  {\pagebreak\begin{figure}[htb!]\begin{center}\begin{minipage}{0.95\linewidth}\begin{summarybox}\color{FirstBlue}%
     \addcontentsline{toc}{section}{\textbf{Summary}}}
   {\end{summarybox}\end{minipage}\end{center}\end{figure}}
 % declaration of discussion box

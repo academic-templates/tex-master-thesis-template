@@ -1,6 +1,6 @@
 % http://ctan.mirrors.hoobly.com/macros/latex/doc/clsguide.pdf
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{eplmastersthesis}[2016/05/21 EPL Master''s Thesis class]
+\ProvidesClass{mastersthesis}[2018/01/01 Master Thesis class]
 
 \LoadClass[11pt, a4paper, openright]{report}
 
@@ -14,8 +14,8 @@
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{graphics}
 \RequirePackage{color}
-\definecolor{UCLblue}{cmyk}{1.00,0.68,0.00,0.54}
-\definecolor{EPLblue}{cmyk}{0.70,0.30,0.00,0.00}
+\definecolor{FirstBlue}{cmyk}{1.00,0.68,0.00,0.54}
+\definecolor{SecondBlue}{cmyk}{0.70,0.30,0.00,0.00}
 \RequirePackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
 \DeclareTextSymbol{\degre}{T1}{6}
 
@@ -40,7 +40,7 @@
 	\end{center}
 	\vspace*{9pt}
 	\begin{flushright}
-	    \color{UCLblue} \fontfamily{phv} \selectfont
+	    \color{FirstBlue} \fontfamily{phv} \selectfont
 	    {\huge \@title} \\
 	    \vspace*{12pt}
         \ifdef{\@subtitle}{\Large \@subtitle}{$ $} \\
@@ -67,7 +67,7 @@
 		Academic year \@years \\
 	\end{flushright}
 	\vspace*{6pt}
-	\color{EPLblue}{\rule{18.5cm}{7.25cm}}
+	\color{SecondBlue}{\rule{18.5cm}{7.25cm}}
   \end{titlepage}
 }
 \newcommand{\frontpage}
@@ -83,9 +83,9 @@
   \thispagestyle{empty}
   \newgeometry{top=1.25cm,bottom=1.25cm,left=1.25cm,right=1.25cm}
   \vspace*{17.75cm}
-  \noindent \footnotesize \color{UCLblue} \fontfamily{phv} \selectfont Rue Archim\`{e}de, 1 bte L6.11.01, 1348 Louvain-la-Neuve ~ ~ \color{EPLblue} \textbf{www.uclouvain.be/epl} \\
+  \noindent \footnotesize \color{FirstBlue} \fontfamily{phv} \selectfont Rue Archim\`{e}de, 1 bte L6.11.01, 1348 Louvain-la-Neuve ~ ~ \color{SecondBlue} \textbf{www.uclouvain.be/epl} \\
   \vspace*{6pt}
-  \textcolor{EPLblue}{\rule{18.5cm}{8.25cm}}
+  \textcolor{SecondBlue}{\rule{18.5cm}{8.25cm}}
 }
 
 \endinput

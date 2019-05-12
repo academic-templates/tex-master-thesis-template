@@ -10,8 +10,8 @@
 % Tikz library imports
 \usetikzlibrary{backgrounds,calc,positioning}
 % define UCL colors
-\definecolor{UCLblue}{cmyk}{1.00,0.68,0.00,0.54}
-\definecolor{EPLblue}{cmyk}{0.70,0.30,0.00,0.00}
+\definecolor{FirstBlue}{cmyk}{1.00,0.68,0.00,0.54}
+\definecolor{SecondBlue}{cmyk}{0.70,0.30,0.00,0.00}
 % define a scale factor for positioning the chapter number
 \def\xshiftfactor{.525}
 % define tikz settings for drawing chapter headers
@@ -25,7 +25,7 @@
   minimum height=1.6cm,%
   anchor=east,%
   xshift=.92\paperwidth,%
-  fill=UCLblue},
+  fill=FirstBlue},
 }
 \tikzset{ % these settings define the blue chapter text header (when chapternumber is present)
   chapterheader/.style={draw,%
@@ -38,7 +38,7 @@
   align=center,%
   anchor=east,%
   xshift=.92\paperwidth,%
-  fill=UCLblue},
+  fill=FirstBlue},
 }
 \tikzset{ % these settings define the white circle of the chapter heading label
   chapternumber/.style={draw,%
@@ -58,7 +58,7 @@
     \begin{tikzpicture}[remember picture,overlay]
       \node[yshift=-4.25cm] at (current page.north west){
         \begin{tikzpicture}[remember picture, overlay]
-          \draw[fill=EPLblue,draw=none] (1.25,0) rectangle (\paperwidth-1.25cm, 3cm);
+          \draw[fill=SecondBlue,draw=none] (1.25,0) rectangle (\paperwidth-1.25cm, 3cm);
           \node[chapterlabel]{\color{white}#1};
         \end{tikzpicture}
       };
@@ -67,11 +67,11 @@
     \begin{tikzpicture}[remember picture,overlay]
       \node[yshift=-4.25cm] at (current page.north west){
         \begin{tikzpicture}[remember picture, overlay]
-          \draw[fill=EPLblue,draw=none] (1.25,0) rectangle (\paperwidth-1.25cm, 3cm);
+          \draw[fill=SecondBlue,draw=none] (1.25,0) rectangle (\paperwidth-1.25cm, 3cm);
           \node[chapterlabel]{};
           \node[chapterheader]{\color{white}#1};
           \draw[fill=white,draw=none] (10.5,0) circle (0.7cm);
-          \node[chapternumber]{\color{UCLblue}\thechapter};
+          \node[chapternumber]{\color{FirstBlue}\thechapter};
         \end{tikzpicture}
       };
     \end{tikzpicture}
@@ -92,7 +92,7 @@
   \begin{tikzpicture}[remember picture,overlay]
     \node[yshift=-1.25cm] at (current page.north west){
       \begin{tikzpicture}[remember picture, overlay]
-        \draw[fill=EPLblue,draw=none] (1.25, 0) rectangle (\paperwidth-10.75cm, -27cm);
+        \draw[fill=SecondBlue,draw=none] (1.25, 0) rectangle (\paperwidth-10.75cm, -27cm);
       \end{tikzpicture}
     };
   \end{tikzpicture}

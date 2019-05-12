@@ -4,14 +4,14 @@
 \RequirePackage{epigraph}
 \RequirePackage{etoolbox}
 % define UCL colors
-\definecolor{UCLblue}{cmyk}{1.00,0.68,0.00,0.54}
-\definecolor{EPLblue}{cmyk}{0.70,0.30,0.00,0.00}
+\definecolor{FirstBlue}{cmyk}{1.00,0.68,0.00,0.54}
+\definecolor{SecondBlue}{cmyk}{0.70,0.30,0.00,0.00}
 % \itshape compatibility with etoolbox
 \makeatletter
 \patchcmd{\epigraph}{\@epitext{#1}}{\itshape\@epitext{#1}}{}{}
 \makeatother
 % epigraph format
-\epigraphfontsize{\color{UCLblue}\LARGE\itshape}
+\epigraphfontsize{\color{FirstBlue}\LARGE\itshape}
 \setlength\epigraphwidth{0.8\textwidth}
 \setlength\epigraphrule{0pt}
 \setlength\beforeepigraphskip{1.5cm}
