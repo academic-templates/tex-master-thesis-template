@@ -1,0 +1,74 @@
+% +++++++++++++++++++++++++++++++++++++++++++++ CONFIGURATION ++++++++++++++++++++++++++++++++++++++++
+% parameter for the print version (i.e. generate the blank pages added with \insertblankpage)
+%  NB: the reason why it is featured is because the printed version, in some cases, should have the
+%       part heading pages aligned on the RIGHT side ; then meaning that some blank pages are to be
+%       inserted when a chapter does not have an even number of pages
+%  NB: when using \insertblanpage, it will insert the page anyway ; it does NOT check the number of
+%       pages of the part to compute if the page is required or not
+\def\printversion{false}
+% parameter to display appendices normally or simply the line in ToC
+%  NB: this is useful if you do not want to include the appendices into the text but you want to keep
+%       appendices lines in the ToC and also the labels for referencing
+\def\displayappendices{true}
+% Common parameters
+\title{Title}
+\author{John Doe}
+\date{\today}
+% Use and configure memoir class
+\documentclass[11pt,a4paper,oneside]{memoir}
+\setulmarginsandblock{2.5cm}{2cm}{*}
+\setlrmarginsandblock{1.5cm}{1.5cm}{*}
+%\renewcommand*\familydefault{\sfdefault} % use this to change overall font
+\renewcommand*\familydefault{ppl}
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\checkandfixthelayout
+% custom packages (contain all required usepackage's)
+\usepackage{styles/thesis}
+% ****************************** REMOVE BEFORE SUBMISSION - START ******************************
+%\usepackage{draftwatermark}
+%\SetWatermarkText{DRAFT}
+%\SetWatermarkScale{1}
+% ******************************* REMOVE BEFORE SUBMISSION - END *******************************
+%
+\makeindex
+\makeglossaries
+%
+\begin{document}
+  % include front cover page (MUST BE GENERATED FIRST!)
+  \includepdf[pages=1]{cover.pdf}
+  \insertblankpage
+  % content starts here
+  \include{parts/abstract}
+  \insertblankpage
+  \include{parts/foreword}
+  \insertblankpage
+  \include{parts/acknowledgements}
+  \insertblankpage
+  % this part takes roman numerals page numbering
+  \frontmatter
+  \tableofcontents
+  \include{parts/acronyms}
+  \insertblankpage
+  \listoffigures \addcontentsline{toc}{chapter}{\textbf{\listfigurename}}
+  % for the rest, page numbering is arabic
+  \mainmatter
+  \include{chapters/introduction}
+%  \insertblankpage
+  \include{chapters/chapter1}
+  \include{chapters/conclusion}
+  \setcounter{chapter}{0}
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % for other parts (i.e. appendices), do not count sections, subsections, ...
+  \addtocontents{ptc}{\protect\setcounter{tocdepth}{2}} % but for appendices' toc's, keep depth to 2
+%  \include{parts/glossary}
+  \addtocontents{toc}{\protect\newpage}
+  \include{parts/references}
+%  \include{parts/index}
+  \def\xshiftfactor{.53} % scaling factor for positioning chapter number label (set to .525 for numbered chapters)
+  \appendix
+  \specialinclude{appendices/template}{Title}{app:app-a-title-slugified}
+%  \insertblankpage
+  \specialinclude{appendices/template-include-pdf}{Title}{app:app-b-title-slugified}
+%  \insertblankpage
+  % include back cover page
+  \includepdf[pages=2]{coverpages.pdf}
+\end{document}

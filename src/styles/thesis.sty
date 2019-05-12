@@ -1,0 +1,121 @@
+% IMPORTANT NOTE: this style file is made for working with memoir class
+%  The memoir class offers the functionnalities of the tocbibind, appendix and tocloft packages
+\NeedsTeXFormat{LaTeX2e}
+%% DO NOT DELETE (for compatibility with memoir class)
+\let\subcaption\undefined
+\let\subfloat\undefined
+%%
+\ProvidesPackage{styles/thesis}[2016/06/25 Miscellaneous package]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage[table]{xcolor}
+\RequirePackage{float}
+\RequirePackage[english]{babel}
+\RequirePackage{url}
+\RequirePackage{amsmath}
+\RequirePackage{makeidx}
+\RequirePackage{pdfpages} % for \includepdf
+\RequirePackage{enumitem}
+\RequirePackage{lettrine}
+\RequirePackage{ifthen}
+\RequirePackage{courier}
+\RequirePackage{listings}
+% custom packages -- WARNING: import order matters !!!
+\RequirePackage{styles/dirtree}
+\RequirePackage{styles/chaptercover}
+\RequirePackage[hidelinks]{hyperref} % must appear before minitoc (imported in styles/customtoc)
+\RequirePackage[acronym,nopostdot,nonumberlist,toc]{glossaries} % NB: glossaries must be loaded after hyperref
+\RequirePackage{styles/customcolors}
+\RequirePackage{styles/customtable}
+\RequirePackage{styles/customtoc}
+\RequirePackage{styles/customepigraph}
+\RequirePackage{styles/customboxes}
+% bibliography settings
+\RequirePackage[
+  backend=bibtex,
+  style=numeric-comp,
+  sorting=none,
+  block=none,
+  indexing=false,
+  citereset=none,
+  url=true
+]{biblatex}
+\addbibresource{parts/bibliography.bib}
+% image settings
+\graphicspath{{figures/},{figures/srs/},{figures/sdd/},{./icons/}}
+\DeclareGraphicsExtensions{.jpg,.jpeg,.gif,.png,.pdf}
+% other settings
+\setboolean{@twoside}{false}
+\setlength{\parindent}{0 pt}
+\feetatbottom % note: this has no effect when \flushbottom is active
+\setcounter{biburllcpenalty}{9000}
+% customize paragraph indentation and space
+\setlength{\parindent}{0pt}
+\nonzeroparskip
+% lettrine helper command with settings
+\newcommand{\bigletter}[2]{\lettrine[findent=1pt]{#1}{#2}}
+% clear page helper command, putting the text "this page intentionally left blank"
+\makeatletter
+\newcommand{\blankpage}{\clearpage \begin{vplace}[0.7]
+  \begin{center}\color{lightgray} This page intentionally left blank.\end{center}
+  \end{vplace} \thispagestyle{empty} \newpage}
+\makeatother
+% customized style for glossaries
+\newlength{\tabcont}
+\newcommand{\tab}[1]{%
+  \settowidth{\tabcont}{#1}%
+  \ifthenelse{\lengthtest{\tabcont < .15\linewidth}}%
+    {\makebox[.15\linewidth][l]{#1}\ignorespaces}%
+    {\makebox[.3\linewidth][l]{#1}\ignorespaces}%
+}
+\newglossarystyle{customstyle}{%
+  \glossarystyle{list}%
+  \renewcommand*{\glossaryentryfield}[5]{%
+    \item \tab{\textbf{\glsentryitem{##1}\glstarget{##1}{##2}}} \tab{##3\glspostdescription\space ##5}}%
+}
+% figure caption and source setup
+\newcommand{\figuresource}[1]{%
+  \par\vspace*{-\abovecaptionskip}
+  \caption*{\footnotesize\itshape #1}}
+\captionsetup{textfont=small,justification=centering}
+% footnote customization
+\renewcommand{\footnoterule}{\kern-3pt \hrule width \textwidth \kern 2.6pt}
+\footmarkstyle{\hspace{\parindent}\textsuperscript{#1}\quad}    % indent the footmark 
+\setlength{\footmarkwidth}{0em}
+\setlength{\footmarksep}{0em}
+\setlength{\footparindent} {\parindent}
+% special include for appendix ; this performs a normal include if appendices must be included,
+%  else it just add a line in the ToC without adding text content
+\newcommand{\specialinclude}[3]{
+  \ifthenelse{\equal{\displayappendices}{true}}{
+    \include{#1}
+  }{
+    \begingroup
+    \refstepcounter{chapter}
+    \customappendix{#2}
+    \label{#3}
+    \endgroup
+  }
+}
+% define some mini-pictures
+\newcommand{\linux}[0]{\includegraphics[height=10pt,natwidth=178,natheight=197]{linux}}
+\newcommand{\mac}[0]{\includegraphics[height=10pt,natwidth=19,natheight=20]{mac}}
+\newcommand{\win}[0]{\includegraphics[height=10pt,natwidth=21,natheight=20]{windows}}
+\newcommand{\all}[0]{\includegraphics[height=10pt,natwidth=23,natheight=20]{cross-platform}}
+\newcommand{\solar}[0]{\includegraphics[height=10pt,natwidth=20,natheight=20]{solaris}}
+\newcommand{\script}[0]{\includegraphics[height=10pt,natwidth=20,natheight=20]{script}}
+\newcommand{\ukey}[0]{\includegraphics[height=10pt,natwidth=20,natheight=20]{portable}}
+\newcommand{\coin}[0]{\includegraphics[height=8pt,natwidth=20,natheight=20]{dollar}}
+% listings package settings
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  mathescape=false,
+  escapeinside={(*}{*)}
+}
+% dirtree settings
+\renewcommand*\DTstyle{\normalfont\textcolor{UCLblue}}
+% command for generating the blank pages for the printed version
+\newcommand{\insertblankpage}{\ifthenelse{\equal{\printversion}{true}}{\blankpage}{}}
