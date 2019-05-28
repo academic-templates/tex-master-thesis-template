@@ -49,16 +49,18 @@ When editing the index with [Texmaker](https://en.wikipedia.org/wiki/Texmaker):
 1. Open `main.tex`
 2. Go to the menu *Options*
 3. Select *Define Current Document as "Master Document"*
-4. Open `main.idx` for edition
+4. Open any other file than `main.tex` for edition
 5. Click on *Quick Build* to compile
 
-This will produce `main.pdf` with all the included chapters, parts and appendices.
+This will produce `main.pdf` with all the included chapters, parts and appendices, just like if the focus was on `main.tex`.
 
 ## Making your dissertation
 
-You should start this by making your cover page. Do not forget to compile it as `main.tex` will include `cover.pdf` (and not the `.tex` file !).
+### Adapting the cover pages
 
-> The reason for this is that the cover page has a dedicated style configured through the `\documentclass{}` command. If, in your case, the cover page has no particular style, the related inclusion line in `main.tex` can be modified to include the adapted `cover.tex`.
+You should start this by making your cover pages. Do not forget to compile it *before* compiling `main.tex` as this will include `cover.pdf` (and not the `.tex` file !). As it can be seen in `main.tex`, **two** pages are included from `cover.pdf` ; the heading and trailing pages.
+
+> The reason for this is that the cover page can have a dedicated style configured through the `\documentclass{}` command (e.g. if the university imposes its style for the sake of uniformity). If, in your case, the cover page has no particular style, the related inclusion line in `main.tex` can be modified to include the adapted `cover.tex`.
 
 You can then start making the dissertation.
 
