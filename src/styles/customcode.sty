@@ -1,0 +1,91 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/customcode}[2022/03/06 Custom code package]
+\RequirePackage{listings}
+\RequirePackage{xparse}
+\RequirePackage{pmboxdraw}
+\RequirePackage{tcolorbox}
+\RequirePackage[chapter]{minted}
+\tcbuselibrary{skins,xparse,listings}
+% listings header name
+\renewcommand\lstlistlistingname{List of Listings}
+\lstset{showstringspaces=false,showlines=true}
+% let listing entries behave as figures in the list of listings
+\let\l@listing\l@figure
+% restyle the line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\color{gray}{\tiny{\arabic{FancyVerbLine}}}}
+% minted code highlighting theme (see `pygmentize -L styles`)
+\pgfkeys{
+  /codeparams/.is family,
+  /codeparams/.cd,
+  fontsize/.store in = \codeparams@fontsize,
+  highlightcolor/.store in = \codeparams@highlightcolor,
+  highlightlines/.store in = \codeparams@highlightlines,
+  language/.store in = \codeparams@language,
+  style/.store in = \codeparams@style,
+  width/.store in = \codeparams@width,
+  fontsize = \footnotesize,
+  highlightcolor = lemonchiffon,
+  language = python,
+  style = default,
+  width = .9\linewidth,
+}
+%% set defaults (not Vdist, which depends on current conditions)
+\newenvironment{code}[3][]{%
+  \VerbatimEnvironment  
+  \pgfkeys{/codeparams, #1}
+  \vspace{-.5cm}
+  \begin{center}
+  \begin{minipage}{\codeparams@width}
+  \begin{listing}[H]
+  \captionsetup{type=listing}
+  \captionof{listing}{#2}
+  \label{code:#3}
+  \begin{minted}[
+    autogobble,
+    breaklines,
+    breakanywhere,
+    bgcolor=gray!5,
+    linenos,
+    numbersep=10pt,
+    highlightcolor=\codeparams@highlightcolor,
+    highlightlines=\codeparams@highlightlines,
+    style=\codeparams@style,
+    fontsize=\codeparams@fontsize,
+  ]{\codeparams@language}%
+}{\end{minted}\end{listing}\end{minipage}\end{center}}
+% draw a terminal like Ubuntu
+\ifthenelse{\equal{\printversion}{true}}{
+  \def\terminaltitle{\textcolor{red!60}{\huge\ttfamily\bfseries{$\bullet\,$}\textcolor{orange!50!yellow}{\huge\ttfamily\bfseries{$\bullet\,$}\textcolor{green!80!black}{\huge\ttfamily\bfseries{$\bullet\,$}}}}}
+  \def\terminalpromptcolor{gray}
+  \def\terminalsnippedcolor{gray!50}
+  \def\terminalcolback{lemonchiffon!25!white}
+  \def\terminalcolupper{black}
+  \def\terminalcolframe{gray!50}
+}{
+  \def\terminaltitle{\textcolor{orange}{\Huge{$\bullet$}}{\textcolor{gray}{\Huge{$\bullet\bullet$}}}}
+  \def\terminalpromptcolor{white}
+  \def\terminalsnippedcolor{violet!50}
+  \def\terminalcolback{violet!50!black}
+  \def\terminalcolupper{white}
+  \def\terminalcolframe{gray!65!black}
+}
+\newlength{\Lind}
+\setbox0\hbox{\small\ttfamily\bfseries\textcolor{red}\#}
+\setlength{\Lind}{\the\dimexpr\wd0+20pt}
+\newcommand{\LR}{\\\hspace*{-\Lind}}
+\newtcblisting{terminal}[1][.95\linewidth]{
+  center,
+  size=small,
+  arc=4pt,
+  halign title=flush left,
+  title={\vspace{-.2cm}\terminaltitle},
+  boxrule=0pt,
+  colback=\terminalcolback,
+  colupper=\terminalcolupper,
+  colframe=\terminalcolframe,
+  listing only,
+  listing options={style=tcblatex,showspaces=false,language=,tabsize=4,escapeinside=``},
+  width=#1,
+}
+\newcommand{\SU}[2][\terminalpromptcolor]{\small\ttfamily\bfseries\textcolor{red}{\textSFi\textSFx\textSFx[root}\textcolor{#1}{@}\textcolor{green!70!black}{packing-box}\textcolor{red}{]\textSFx\textSFx[}\textcolor{#1}{/mnt/share}\textcolor{red}{]\textSFx\textSFx\textSFx\textSFx\textSFx\textSFx\textSFx\textSFx}\LR{  }\textcolor{red}\# \mdseries #2 }
+\newcommand{\Snipped}[1][\terminalsnippedcolor]{\textcolor{#1}{<{<}snipped{>}>}}
