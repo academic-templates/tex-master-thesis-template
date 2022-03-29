@@ -1,4 +1,4 @@
-## Introduction
+## :information_source: Introduction
 
 The goal of this template is to provide a nice-looking master thesis dissertation layout, easy to configure and fill in.
 
@@ -20,7 +20,7 @@ Here is an example preview for appendix items, including the appendix heading wi
 <sub><sup>Preview image generated with <a href="https://gist.github.com/dhondta/f57dfde304905644ca5c43e48c249125">this tool</a></sup></sub></p>
 
 
-## Structure
+## :card_file_box: Structure
 
 The template is structured in the following way:
 
@@ -34,7 +34,7 @@ The template is structured in the following way:
 - `parts`: This folder contains every part other than chapters or appendices (i.e. abstract, foreword, references, acronyms, ...), one TeX file for each of them, to be included in `main.tex`.
 - `styles`: This folder contains the available styles. Most of the included one should not be edited. Depending on the university, a TeX style could be provided, i.e. for styling the cover page ; this can be configured in `cover.tex`.
 
-## Compilation
+## :gear: Compilation
 
 The compilation can easilly be configured in [Texmaker](https://en.wikipedia.org/wiki/Texmaker) by defining a *Quick Build Command*:
 
@@ -57,7 +57,7 @@ When editing the index with [Texmaker](https://en.wikipedia.org/wiki/Texmaker):
 
 This will produce `main.pdf` with all the included chapters, parts and appendices, just like if the focus was on `main.tex`.
 
-## Making your dissertation
+## :mortar_board: Making your dissertation
 
 ### Adapting the cover pages
 
@@ -137,3 +137,21 @@ An appendix can also include an external PDF (i.e. when you don't want to reform
 {-25}% vertical offset of other pages
 {PDF Title (optional)}
 ```
+
+
+## :star: Related Projects
+
+You may also like these:
+
+- [TeX Book Template](https://github.com/dhondta/tex-book-template): A template for writing a nice book with LaTeX.
+- [TeX Course Index Template](https://github.com/dhondta/tex-course-index-template): A template for writing a condensed course index leveraging LaTeX indexing.
+
+
+## :clap:  Supporters
+
+[![Stargazers repo roster for @dhondta/tex-master-thesis-template](https://reporoster.com/stars/dark/dhondta/tex-master-thesis-template)](https://github.com/dhondta/tex-master-thesis-template/stargazers)
+
+[![Forkers repo roster for @dhondta/tex-master-thesis-template](https://reporoster.com/forks/dark/dhondta/tex-master-thesis-template)](https://github.com/dhondta/tex-master-thesis-template/network/members)
+
+<p align="center"><a href="#"><img src="https://img.shields.io/badge/Back%20to%20top--lightgrey?style=social" alt="Back to top" height="20"/></a></p>
+
