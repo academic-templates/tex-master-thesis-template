@@ -1,0 +1,11 @@
+% key-value handling
+\def\newhyperlink#1#2#3{\expandafter\gdef\csname my@data@\detokenize{link:#1}\endcsname{\href{#3}{#2}}}
+\def\link#1{%
+  \ifcsname my@data@\detokenize{link:#1}\endcsname
+    \csname my@data@\detokenize{link:#1}\expandafter\endcsname
+  \else
+    \expandafter\ERROR
+  \fi
+}
+\newhyperlink{example}{Example}{https://www.example.com}
+%reference it with \link{example}
