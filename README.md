@@ -6,17 +6,17 @@ The goal of this template is to provide a nice-looking master thesis dissertatio
 
 Here is an example preview for the header page, table of content, and other main document items:
 
-<p align="center"><img src="https://raw.githubusercontent.com/dhondta/tex-master-thesis-template/master/doc/preview-main.png">
+<p align="center"><img src="https://raw.githubusercontent.com/academic-templates/tex-master-thesis-template/main/doc/preview-main.png"><br>
 <sub><sup>Preview image generated with <a href="https://gist.github.com/dhondta/f57dfde304905644ca5c43e48c249125">this tool</a></sup></sub></p>
 
 Here is an example preview for chapter items, including the chapter heading, summary and discussion pages:
 
-<p align="center"><img src="https://raw.githubusercontent.com/dhondta/tex-master-thesis-template/master/doc/preview-chapter.png">
+<p align="center"><img src="https://raw.githubusercontent.com/academic-templates/tex-master-thesis-template/main/doc/preview-chapter.png"><br>
 <sub><sup>Preview image generated with <a href="https://gist.github.com/dhondta/f57dfde304905644ca5c43e48c249125">this tool</a></sup></sub></p>
 
 Here is an example preview for appendix items, including the appendix heading with a mini table of content:
 
-<p align="center"><img src="https://raw.githubusercontent.com/dhondta/tex-master-thesis-template/master/doc/preview-appendix.png">
+<p align="center"><img src="https://raw.githubusercontent.com/academic-templates/tex-master-thesis-template/main/doc/preview-appendix.png"><br>
 <sub><sup>Preview image generated with <a href="https://gist.github.com/dhondta/f57dfde304905644ca5c43e48c249125">this tool</a></sup></sub></p>
 
 
@@ -47,7 +47,7 @@ The compilation can easilly be configured in [Texmaker](https://en.wikipedia.org
 
 5. Then click *OK*
 
-When editing the index with [Texmaker](https://en.wikipedia.org/wiki/Texmaker):
+When editing the dissertation with [Texmaker](https://en.wikipedia.org/wiki/Texmaker):
 
 1. Open `main.tex`
 2. Go to the menu *Options*
@@ -143,15 +143,18 @@ An appendix can also include an external PDF (i.e. when you don't want to reform
 
 You may also like these:
 
-- [TeX Book Template](https://github.com/dhondta/tex-book-template): A template for writing a nice book with LaTeX.
-- [TeX Course Index Template](https://github.com/dhondta/tex-course-index-template): A template for writing a condensed course index leveraging LaTeX indexing.
+- [TeX Book Template](https://github.com/academic-templates/tex-book-template): A template for writing a nice book with LaTeX.
+- [TeX Cheat Sheet Template](https://github.com/academic-templates/tex-cheat-sheet-template): A template for creating a nice cheat sheet with LaTeX.
+- [TeX Course Index Template](https://github.com/academic-templates/tex-course-index-template): A template for writing a condensed course index leveraging LaTeX indexing.
+- [TeX Poster Template](https://github.com/academic-templates/tex-poster-template): A template for creating a nice scientific poster with LaTeX.
+- [TeX Slideshow Template](https://github.com/academic-templates/tex-slideshow-template): A template for making a nice presentation with LaTeX.
 
 
 ## :clap:  Supporters
 
-[![Stargazers repo roster for @dhondta/tex-master-thesis-template](https://reporoster.com/stars/dark/dhondta/tex-master-thesis-template)](https://github.com/dhondta/tex-master-thesis-template/stargazers)
+[![Stargazers repo roster for @academic-templates/tex-master-thesis-template](https://reporoster.com/stars/dark/academic-templates/tex-master-thesis-template)](https://github.com/academic-templates/tex-master-thesis-template/stargazers)
 
-[![Forkers repo roster for @dhondta/tex-master-thesis-template](https://reporoster.com/forks/dark/dhondta/tex-master-thesis-template)](https://github.com/dhondta/tex-master-thesis-template/network/members)
+[![Forkers repo roster for @academic-templates/tex-master-thesis-template](https://reporoster.com/forks/dark/academic-templates/tex-master-thesis-template)](https://github.com/academic-templates/tex-master-thesis-template/network/members)
 
 <p align="center"><a href="#"><img src="https://img.shields.io/badge/Back%20to%20top--lightgrey?style=social" alt="Back to top" height="20"/></a></p>
 
