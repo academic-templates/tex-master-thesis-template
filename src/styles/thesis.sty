@@ -75,9 +75,9 @@
     {\makebox[.3\linewidth][l]{#1}\ignorespaces}%
 }
 \newglossarystyle{customstyle}{%
-  \glossarystyle{list}%
-  \renewcommand*{\glossaryentryfield}[5]{%
-    \item \tab{\textbf{\glsentryitem{##1}\glstarget{##1}{##2}}} \tab{##3\glspostdescription\space ##5}}%
+  \setglossarystyle{list}
+  \renewcommand*{\glossentry}[2]{%
+    \item \tab{\textbf{\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}}} \tab{\glossentrydesc{##1}\glspostdescription\space ##2\tabularnewline}}
 }
 % figure caption and source setup
 \newcommand{\figuresource}[1]{%
